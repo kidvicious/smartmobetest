@@ -11,6 +11,7 @@
 		A4DAF13472FD758BA62E0BDF /* Pods_SmartmobeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 706FF10EFA1AB35F7AB06DD6 /* Pods_SmartmobeTests.framework */; };
 		A629961D225EEB9D00E9018B /* ResultMediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A629961C225EEB9D00E9018B /* ResultMediaCollectionViewCell.swift */; };
 		A629961F225EEDA600E9018B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A629961E225EEDA600E9018B /* Utils.swift */; };
+		A6299621225F9D1700E9018B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6299620225F9D1700E9018B /* DetailViewController.swift */; };
 		A6FE8C70225DFC010091078B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FE8C6F225DFC010091078B /* AppDelegate.swift */; };
 		A6FE8C72225DFC010091078B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FE8C71225DFC010091078B /* ViewController.swift */; };
 		A6FE8C75225DFC010091078B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6FE8C73225DFC010091078B /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		8FE0402AEA86AE2064A56686 /* Pods-Smartmobe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smartmobe.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smartmobe/Pods-Smartmobe.release.xcconfig"; sourceTree = "<group>"; };
 		A629961C225EEB9D00E9018B /* ResultMediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultMediaCollectionViewCell.swift; sourceTree = "<group>"; };
 		A629961E225EEDA600E9018B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		A6299620225F9D1700E9018B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A6FE8C6C225DFC010091078B /* Smartmobe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smartmobe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FE8C6F225DFC010091078B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6FE8C71225DFC010091078B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				A6FE8C9F225DFCAA0091078B /* APIHandler.swift */,
 				A629961E225EEDA600E9018B /* Utils.swift */,
 				A6FE8CA3225E09730091078B /* Media.swift */,
+				A6299620225F9D1700E9018B /* DetailViewController.swift */,
 				A629961C225EEB9D00E9018B /* ResultMediaCollectionViewCell.swift */,
 				A6FE8CA1225DFD8A0091078B /* Constant.swift */,
 				A6FE8C73225DFC010091078B /* Main.storyboard */,
@@ -415,6 +418,7 @@
 				A6FE8C70225DFC010091078B /* AppDelegate.swift in Sources */,
 				A6FE8CA2225DFD8A0091078B /* Constant.swift in Sources */,
 				A6FE8CA4225E09730091078B /* Media.swift in Sources */,
+				A6299621225F9D1700E9018B /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

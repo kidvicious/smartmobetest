@@ -25,7 +25,9 @@ class ViewController: UIViewController {
         resultsCollectionView.delegate = self
         getImages()
     }
-
+    
+    
+    //MARK: - Methods
     
     fileprivate func getImages() {
         APIHandler.shared.getImages(completion: { (result) in
@@ -43,6 +45,12 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    fileprivate func presentDetailVC(mediaItem: MediaResult){
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        detailVC.media = mediaItem
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
 
 }
 
@@ -58,5 +66,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource{
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let mediaItem = result[indexPath.row]
+        presentDetailVC(mediaItem: mediaItem)
+    }
 }
