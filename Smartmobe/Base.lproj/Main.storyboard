@@ -75,15 +75,15 @@
             </objects>
             <point key="canvasLocation" x="1079.2" y="133.5832083958021"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Tap on image-->
         <scene sceneID="4dR-KL-0dF">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController" id="VbW-ws-JrM" customClass="DetailViewController" customModule="Smartmobe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" title="Tap on image" id="VbW-ws-JrM" customClass="DetailViewController" customModule="Smartmobe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XKb-KH-fHg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GQf-BW-UaE">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GQf-BW-UaE">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="603" id="6Aa-CB-RdF"/>

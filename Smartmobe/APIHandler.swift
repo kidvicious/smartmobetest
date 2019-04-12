@@ -35,10 +35,10 @@ class APIHandler{
         let parameters:Parameters = [
             "query": query
         ]
-        
-        Alamofire.request(k_api_search, method: .get, parameters: parameters, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+        Alamofire.request(k_api_search(query: query), method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
             if response.result.isSuccess{
                 let value = response.result.value
+                print(value)
                 completion(value)
             }else{
                 failure(response.error)

@@ -14,7 +14,7 @@ class DetailViewController: UIViewController {
     var media: MediaResult!
     var source: MediaSource?{
         didSet{
-            nameLabel.text = source?.name ?? ""
+            nameLabel.text = source?.name ?? source?.message ?? ""
         }
     }
     

@@ -16,6 +16,16 @@ class ViewController: UIViewController {
     
     var result = [MediaResult](){
         didSet{
+            if result.count == 0{
+                let label = UILabel(frame: self.view.frame)
+                label.textAlignment = .center
+                label.font = UIFont.boldSystemFont(ofSize: 15)
+                label.textColor = .black
+                label.text = "No results"
+                self.resultsCollectionView.backgroundView = label
+            }else{
+                self.resultsCollectionView.backgroundView = nil
+            }
             self.resultsCollectionView.reloadData()
         }
     }
@@ -26,10 +36,7 @@ class ViewController: UIViewController {
         resultsCollectionView.dataSource = self
         resultsCollectionView.delegate = self
         getImages()
-        searchBar.placeholder = "Search images/video"
-        searchBar.enablesReturnKeyAutomatically = true
-        let leftNavBarButton = UIBarButtonItem(customView:searchBar)
-        self.navigationItem.leftBarButtonItem = leftNavBarButton
+        setupSearchBar()
     }
     
     
@@ -56,6 +63,24 @@ class ViewController: UIViewController {
         }
     }
     
+    fileprivate func setupSearchBar() {
+        searchBar.placeholder = "Search images/video"
+        searchBar.enablesReturnKeyAutomatically = true
+        searchBar.showsCancelButton = true
+        searchBar.delegate = self
+        let leftNavBarButton = UIBarButtonItem(customView:searchBar)
+        self.navigationItem.leftBarButtonItem = leftNavBarButton
+    }
+    
+    fileprivate func searchImage(query: String){
+            APIHandler.shared.searchImages(query: query, completion: {[unowned self] (result) in
+                let mediaResult = Media.parseResult(data: result as! NSDictionary)
+                self.result = mediaResult
+            }) { (error) in
+                print(error?.localizedDescription)
+            }
+    }
+    
     fileprivate func presentDetailVC(mediaItem: MediaResult){
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         detailVC.media = mediaItem
@@ -79,5 +104,18 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let mediaItem = result[indexPath.row]
         presentDetailVC(mediaItem: mediaItem)
+    }
+}
+
+extension ViewController: UISearchBarDelegate{
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchImage(query: searchBar.text!)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        getImages()
     }
 }
