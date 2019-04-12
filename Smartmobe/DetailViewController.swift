@@ -33,6 +33,10 @@ class DetailViewController: UIViewController {
         profileView.backgroundColor = UIColor.black.withAlphaComponent(0.8)
     }
     
+    deinit {
+        print("DetailViewController deinitialized")
+    }
+    
     
     @IBAction func dismissProfile(_ sender: Any) {
         UIView.animate(withDuration: 0.5) {[weak self] in

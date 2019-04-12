@@ -10,10 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
     @IBOutlet weak var resultsCollectionView: UICollectionView!
     lazy var searchBar:UISearchBar = UISearchBar(frame: (self.navigationController?.navigationBar.frame)!)
-    
     
     var result = [MediaResult](){
         didSet{
@@ -22,18 +20,12 @@ class ViewController: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         resultsCollectionView.dataSource = self
         resultsCollectionView.delegate = self
         getImages()
         setupSearchBar()
-    }
-    
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        searchBar.resignFirstResponder()
     }
     
     //MARK: - Methods
@@ -50,7 +42,7 @@ class ViewController: UIViewController {
             if let err = error{
                 print(err.localizedDescription)
             }else{
-                print("An error occurred.")
+                print("Unknown error.")
             }
         }
     }
@@ -69,7 +61,7 @@ class ViewController: UIViewController {
                 let mediaResult = Media.parseResult(data: result as! NSDictionary)
                 self?.result = mediaResult
             }) { (error) in
-                print(error?.localizedDescription)
+                print(error)
             }
     }
     
