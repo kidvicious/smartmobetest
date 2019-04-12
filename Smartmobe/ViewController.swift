@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var resultsCollectionView: UICollectionView!
+    lazy var searchBar:UISearchBar = UISearchBar(frame: (self.navigationController?.navigationBar.frame)!)
     
     var result = [MediaResult](){
         didSet{
@@ -19,13 +20,22 @@ class ViewController: UIViewController {
         }
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         resultsCollectionView.dataSource = self
         resultsCollectionView.delegate = self
         getImages()
+        searchBar.placeholder = "Search images/video"
+        searchBar.enablesReturnKeyAutomatically = true
+        let leftNavBarButton = UIBarButtonItem(customView:searchBar)
+        self.navigationItem.leftBarButtonItem = leftNavBarButton
     }
     
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        searchBar.resignFirstResponder()
+    }
     
     //MARK: - Methods
     

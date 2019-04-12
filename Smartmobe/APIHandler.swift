@@ -45,4 +45,20 @@ class APIHandler{
             }
         }
     }
+    
+    func getSource(id: Int, completion:@escaping(_ data: Any?)->(), failure: @escaping(_ error: Error?)->()){
+        let header: HTTPHeaders = [
+            "Accept": "Application/json"
+        ]
+        
+        Alamofire.request(k_api_source(id: id), method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+            if response.result.isSuccess{
+                let value = response.result.value
+                completion(value)
+            }else{
+                failure(response.error)
+            }
+        }
+    }
+    
 }

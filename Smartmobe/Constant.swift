@@ -14,3 +14,7 @@ let k_api_get_images = "\(k_api_root)/api/v1/images/latest"
 ///params : 'query': <search query>
 let k_api_search = "\(k_api_root)/api/v1/images/search"
 
+func k_api_source(id: Int) -> String{
+    return "\(k_api_root)/api/v1/sources/:\(id)"
+}
+
